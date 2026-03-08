@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Projets réalisés par Marima : e-commerce, CMS, portfolio moderne.">
+<title>Projects - Marima</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<style>
+/* Styles supplémentaires pour les projets */
+.projects-page {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.projects-page h1 {
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background-color: #1c1c1c;
+    color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.project-card h4 {
+    margin: 15px 0 10px 0;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    padding: 0 10px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.btn-custom {
+    background-color: #ff6b6b;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #ff4757;
+}
+
+/* Filtres */
+.filter-btns {
+    margin-bottom: 30px;
+}
+
+.filter-btns button {
+    margin: 0 5px;
+    border-radius: 25px;
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand logo" href="index.html">Marima&lt;/&gt;</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="container projects-page">
+<h1 data-aos="fade-down">My Projects</h1>
+
+<!-- Filtres -->
+<div class="filter-btns" data-aos="fade-up">
+    <button class="btn btn-outline-light" onclick="filterProjects('all')">All</button>
+    <button class="btn btn-outline-light" onclick="filterProjects('web')">Web</button>
+    <button class="btn btn-outline-light" onclick="filterProjects('app')">App</button>
+    <button class="btn btn-outline-light" onclick="filterProjects('other')">Other</button>
+</div>
+
+<div class="row" id="projects-container">
+
+<!-- Projet e-commerce -->
+<div class="col-sm-6 col-md-4 project-item" data-category="web" data-aos="zoom-in" data-aos-delay="100">
+  <a href="https://mariama-wade-dev.github.io/commerce/" class="project-link text-decoration-none text-white" target="_blank" rel="noopener">
+    <div class="card project-card">
+      <img src="images/img1.png" alt="Capture d'écran du projet e-commerce">
+      <h4>E-commerce Website</h4>
+      <p>Boutique en ligne interactive avec catalogue de produits et navigation fluide entre les catégories.</p>
+      <span class="btn btn-custom btn-sm mt-2" role="button">Voir le projet</span>
+    </div>
+  </a>
+</div>
+
+<!-- Projet Country Explorer -->
+<div class="col-sm-6 col-md-4 project-item" data-category="app" data-aos="zoom-in" data-aos-delay="150">
+  <a href="file:///C:/Users/HP/Desktop/dossier%20transfert/EXAMEN-BOOTSTRAP-NOVEMBRE-2025/index.html" class="project-link text-decoration-none text-white" target="_blank" rel="noopener">
+    <div class="card project-card">
+      <img src="images/img3.png" alt="Capture d'écran du projet pays">
+      <h4>Country Explorer</h4>
+      <p>Application de recherche et de détails sur les pays (drapeau, capitale, population, régions).</p>
+      <span class="btn btn-custom btn-sm mt-2" role="button">Voir le projet</span>
+    </div>
+  </a>
+</div>
+
+<!-- Projet Taskia -->
+<div class="col-sm-6 col-md-4 project-item" data-category="app" data-aos="zoom-in" data-aos-delay="200">
+  <a href="https://mariama-wade-dev.github.io/wade/" class="project-link text-decoration-none text-white" target="_blank" rel="noopener">
+    <div class="card project-card">
+      <img src="images/img2.png" alt="Capture d'écran du projet Taskia">
+      <h4>Taskia</h4>
+      <p>Application de gestion de tâches avec ajout, suppression et suivi du statut des missions.</p>
+      <span class="btn btn-custom btn-sm mt-2" role="button">Voir le projet</span>
+    </div>
+  </a>
+</div>
+
+<!-- Tu peux ajouter d'autres projets ici en copiant le div et changeant category -->
+
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+
+// Filtrage des projets
+function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-item');
+    projects.forEach(p => {
+        if (category === 'all' || p.getAttribute('data-category') === category) {
+            p.style.display = 'block';
+        } else {
+            p.style.display = 'none';
+        }
+    });
+}
+</script>
+</body>
+</html>
